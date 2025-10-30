@@ -23,4 +23,6 @@ You can create, update and delete diary entries, and list all entries in descend
 
 ## How to create the database
 
-See [config/createdb.sql](config/createdb.sql).
+Run the SQL script [config/createdb.sql](config/createdb.sql).
+
+The database credentials must be set in [config/config.php](config/config.php).
