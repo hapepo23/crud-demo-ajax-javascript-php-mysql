@@ -1,0 +1,9 @@
+CREATE DATABASE diarydb;
+
+USE diarydb;
+
+CREATE TABLE diaryentries (
+    deid INT AUTO_INCREMENT PRIMARY KEY,
+    dedate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    detext TEXT NOT NULL
+);

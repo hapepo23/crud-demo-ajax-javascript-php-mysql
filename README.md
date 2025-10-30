@@ -1,0 +1,26 @@
+# Simple CRUD (Create-Read-Update-Delete) demo using AJAX, JavaScript, PHP, MySQL 
+
+This webapp is a simple diary app. 
+
+You can create, update and delete diary entries, and list all entries in descending order.
+
+## Project structure
+
+![Project structure](structure.png)
+
+## Calling order
+
+- index.php 
+  - assets/js/diary_entry.js
+    - api/diary_entry_xxx.php 
+      - app/controllers/diary_entry_controller.php
+        - app/models/diary_entry.php
+          - app/core/database.php
+
+## Screenshot
+
+![Webapp Screenshot](webapp.png)
+
+## How to create the database
+
+See [config/createdb.sql](config/createdb.sql).
