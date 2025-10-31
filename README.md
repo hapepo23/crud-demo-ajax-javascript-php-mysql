@@ -31,4 +31,4 @@ The database credentials must be set in [config/config.php](config/config.php).
 
 This line in index.php need to be changed according to the directory where this app is placed.
 
-  const BASE_URL = "/diary"; // <--- This may need to be changed.
+    const BASE_URL = "/diary"; // <--- This may need to be changed.
