@@ -109,6 +109,6 @@ async function load_diary_entries() {
         }); // addEventListener click delete
         tbody.appendChild(clone);
     });
-}
+} // load_diary_entries
 
 load_diary_entries();

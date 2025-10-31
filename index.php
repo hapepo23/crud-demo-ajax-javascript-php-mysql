@@ -36,7 +36,7 @@
 </template>
 
 <script>
-const BASE_URL = "http://localhost/diary"; 
+const BASE_URL = "/diary"; // <--- This may need to be changed.
 </script>
 <script src="assets/js/diary_entry.js"></script>
 

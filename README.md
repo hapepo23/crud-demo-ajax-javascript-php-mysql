@@ -26,3 +26,9 @@ You can create, update and delete diary entries, and list all entries in descend
 Run the SQL script [config/createdb.sql](config/createdb.sql).
 
 The database credentials must be set in [config/config.php](config/config.php).
+
+## Parameter BASE_URL in index.php 
+
+This line in index.php need to be changed according to the directory where this app is placed.
+
+  const BASE_URL = "/diary"; // <--- This may need to be changed.

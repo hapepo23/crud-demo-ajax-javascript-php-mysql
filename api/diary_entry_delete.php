@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = (int)($_POST['id'] ?? 0);
     if (!$id) {
-        echo json_encode(['success'=>false,'error'=>'Ungültige ID']);
+        echo json_encode(['success'=>false, 'error'=>'Invalid or missing ID']);
         exit;
     }
     $controller = new diary_entry_controller();

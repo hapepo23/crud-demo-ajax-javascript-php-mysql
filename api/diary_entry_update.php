@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = (int)($_POST['id'] ?? 0);
     $text = trim($_POST['text'] ?? '');
     if (!$text) {
-        echo json_encode(['success'=>false, 'error'=>'Text darf nicht leer sein']);
+        echo json_encode(['success'=>false, 'error'=>'Diary Entry must not be empty']);
         exit;
     }
     if (!$id) {
-        echo json_encode(['success'=>false,'error'=>'Ungültige ID']);
+        echo json_encode(['success'=>false, 'error'=>'Invalid or missing ID']);
         exit;
     }
     $controller = new diary_entry_controller();
