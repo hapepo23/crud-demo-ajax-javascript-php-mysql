@@ -8,6 +8,28 @@ You can create, update and delete diary entries, and list all entries in descend
 
 ![Project structure](structure.png)
 
+## Layers (Frontend - API - Backend)
+
+    [ Browser / JS ]
+            |
+            |  (fetch, POST, GET, JSON)
+            v
+    [ API endpoints (PHP files) ]
+            |
+            |  (call Controller methods)
+            v
+    [ Controllers ]  →  [ Models ]  →  [ Database ]
+
+## Layers in Detail
+
+| Layer          | Purpose                              | File(s)                         |
+| -------------- | ------------------------------------ | ------------------------------------ |
+| **Frontend**   | UI and user interaction              | `index.php`, `assets/js/diary_entry.js`              |
+| **API**        | Interface between frontend & backend | `api/diary_entry_xxx.php`, ...       |
+| **Controller** | Business logic                       | `app\controllers\diary_entry_controller.php` |
+| **Model**      | Data logic (CRUD)                    | `app\models\diary_entry.php`                |
+| **Database**   | Low-level SQL connection             | `app\core\database.php`              |
+
 ## Calling order
 
 - index.php 
