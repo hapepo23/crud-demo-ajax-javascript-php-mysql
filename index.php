@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1>My Diary</h1>
+<h1>My Little Diary</h1>
 
 <h2>New Entry</h2>
 <form id="new_diary_entry_form">
@@ -16,6 +16,13 @@
 </form>
 
 <h2>Diary Entries</h2>
+
+<div id="filterdiv">
+<label for="filter">Filter: </label>
+<input type="text" id="filter">
+<button id="clearFilterBtn">❌</button>
+</div>
+
 <table border="1">
     <thead>
         <tr><th>Date/Time</th><th>Entry (Click to update)</th><th>Actions</th></tr>

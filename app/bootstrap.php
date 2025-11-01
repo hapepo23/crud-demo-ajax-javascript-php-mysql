@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config/error_reporting.php';
 
 spl_autoload_register(
     function ($class) {

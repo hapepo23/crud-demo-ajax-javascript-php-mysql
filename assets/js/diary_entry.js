@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Success/new_diary_entry_form: " + JSON.stringify(data));
             if (data.success) {
                 userForm.reset();
-                load_diary_entries();
+                load_diary_entries(document.getElementById("filter").value);
             } else {
                 alert("Error: " + (data.error || "Unknown error"));
             }
@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // create diary entry table
 
-async function load_diary_entries() {
+async function load_diary_entries(filter = "") {
+    console.log('FILTER:' + filter)
     try {
-        const res = await fetch(`${BASE_URL}/api/diary_entry_select.php`);
+        const res = await fetch(`${BASE_URL}/api/diary_entry_select.php?filter=${encodeURIComponent(filter)}`);
         entries = await res.json();
         console.log("Success/diary_entry_select: " + JSON.stringify(entries));
     }
@@ -81,7 +82,7 @@ async function load_diary_entries() {
                 console.log("Success/diary_entry_update: " + JSON.stringify(data));
                 if(!data.success) 
                     alert("Update Error: " + (data.error || "Unknown error"));
-                load_diary_entries();
+                load_diary_entries(document.getElementById("filter").value);
             }
             catch (err) {
                 alert("Update Error: " + err.message);
@@ -101,7 +102,7 @@ async function load_diary_entries() {
                 console.log("Success/diary_entry_delete: " + JSON.stringify(data));
                 if(!data.success) 
                     alert("Delete Error: " + (data.error || "Unknown error"));
-                load_diary_entries();
+                load_diary_entries(document.getElementById("filter").value);
             }
             catch (err) {
                 alert("Delete Error: " + err.message);
@@ -110,5 +111,15 @@ async function load_diary_entries() {
         tbody.appendChild(clone);
     });
 } // load_diary_entries
+
+document.getElementById("filter").addEventListener("input", e => {
+    const filterValue = e.target.value.trim();
+    load_diary_entries(filterValue);
+});
+
+document.getElementById("clearFilterBtn").addEventListener("click", e => {
+    document.getElementById("filter").value = '';
+    load_diary_entries();
+});
 
 load_diary_entries();

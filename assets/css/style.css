@@ -1,7 +1,8 @@
 body {
   font-family: 'Noto Sans', sans-serif;
+  font-size: 13pt;
   background: #f4f4f4;
-  padding: 40px;
+  padding: 20px;
 }
 
 form {
@@ -53,10 +54,27 @@ th, td {
 th { background: #007bff; color: white; }
 
 textarea {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13pt;
   width: 95%;
   height: 100px;
   padding: 8px;
   margin: 6px 0px 12px 0;
   border: 1px solid #ccc;
   border-radius: 6px;
+}
+
+#filterdiv {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 420px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#filter {
+  font-size: 13pt;
+  margin: 6px 0px 12px 0;
+  width:300px;
 }

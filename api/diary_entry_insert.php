@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config/error_reporting.php';
 require_once __DIR__ . '/../app/bootstrap.php';
 use app\controllers\diary_entry_controller;
 
