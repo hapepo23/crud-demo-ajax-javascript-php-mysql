@@ -1,6 +1,6 @@
 <?php
 namespace app\core;
-require_once __DIR__ . '/../../config/error_reporting.php';
+require_once __DIR__ . '/../../config/debugging.php';
 
 class database {
     protected $conn;

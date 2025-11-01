@@ -1,7 +1,7 @@
 <?php
 namespace app\models;
 use app\core\database;
-require_once __DIR__ . '/../../config/error_reporting.php';
+require_once __DIR__ . '/../../config/debugging.php';
 
 class diary_entry extends database {
 

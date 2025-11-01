@@ -42,9 +42,11 @@
     </tr>
 </template>
 
+<!-- JavaScript -->
 <script>
 const BASE_URL = "/diary"; // <--- This may need to be changed.
 </script>
+<script src="config/debugging.js"></script>
 <script src="assets/js/diary_entry.js"></script>
 
 </body>

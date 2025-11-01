@@ -1,7 +1,7 @@
 <?php
 namespace app\controllers;
 use app\models\diary_entry;
-require_once __DIR__ . '/../../config/error_reporting.php';
+require_once __DIR__ . '/../../config/debugging.php';
 
 class diary_entry_controller {
 

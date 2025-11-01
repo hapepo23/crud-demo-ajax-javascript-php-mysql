@@ -1,14 +1,16 @@
 // process diary entry form
 
 document.addEventListener("DOMContentLoaded", () => {
-    const userForm = document.getElementById("new_diary_entry_form");
-    if (!userForm) return;
-    userForm.addEventListener("submit", async function (e) {
+
+    const diaryEntryForm = document.getElementById("new_diary_entry_form");
+    if (!diaryEntryForm) return;
+
+    diaryEntryForm.addEventListener("submit", async function (e) {
         e.preventDefault();
         const text = document.getElementById("text").value.trim();
         if (!text) return alert("Diary Entry must not be empty!");
         try {
-            const formData = new FormData(userForm);
+            const formData = new FormData(diaryEntryForm);
             formData.append("text",text);
             console.log("formData new_diary_entry_form:");
             for (const pair of formData.entries()) {
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await res.json();
             console.log("Success/new_diary_entry_form: " + JSON.stringify(data));
             if (data.success) {
-                userForm.reset();
+                diaryEntryForm.reset();
                 load_diary_entries(document.getElementById("filter").value);
             } else {
                 alert("Error: " + (data.error || "Unknown error"));
@@ -30,7 +32,24 @@ document.addEventListener("DOMContentLoaded", () => {
         catch (err) {
             alert("Error: " + err.message);
         }
-    });  // addEventListener submit
+    });  // addEventListener submit new_diary_entry_form
+
+    const filterEntry = document.getElementById("filter");
+    if (!filterEntry) return;
+
+    filterEntry.addEventListener("input", e => {
+        const filterValue = e.target.value.trim();
+        load_diary_entries(filterValue);
+    });  // addEventListener input filter
+
+    const clearFilterButton = document.getElementById("clearFilterBtn");
+    if (!clearFilterButton) return;
+
+    clearFilterButton.addEventListener("click", e => {
+        filterEntry.value = '';
+        load_diary_entries();
+    });  // addEventListener click clearFilterBtn
+
 });  // addEventListener DOMContentLoaded
 
 // create diary entry table
@@ -38,7 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
 async function load_diary_entries(filter = "") {
     console.log('FILTER:' + filter)
     try {
-        const res = await fetch(`${BASE_URL}/api/diary_entry_select.php?filter=${encodeURIComponent(filter)}`);
+        const formData = new FormData();
+        formData.append("filter",filter);
+        const res = await fetch(`${BASE_URL}/api/diary_entry_select.php`, {method:"POST", body:formData});
         entries = await res.json();
         console.log("Success/diary_entry_select: " + JSON.stringify(entries));
     }
@@ -111,15 +132,5 @@ async function load_diary_entries(filter = "") {
         tbody.appendChild(clone);
     });
 } // load_diary_entries
-
-document.getElementById("filter").addEventListener("input", e => {
-    const filterValue = e.target.value.trim();
-    load_diary_entries(filterValue);
-});
-
-document.getElementById("clearFilterBtn").addEventListener("click", e => {
-    document.getElementById("filter").value = '';
-    load_diary_entries();
-});
 
 load_diary_entries();

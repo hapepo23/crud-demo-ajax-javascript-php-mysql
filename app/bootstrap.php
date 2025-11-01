@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../config/error_reporting.php';
+require_once __DIR__ . '/../config/debugging.php';
 
 spl_autoload_register(
     function ($class) {

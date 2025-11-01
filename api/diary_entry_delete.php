@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../config/error_reporting.php';
+require_once __DIR__ . '/../config/debugging.php';
 require_once __DIR__ . '/../app/bootstrap.php';
 use app\controllers\diary_entry_controller;
 
@@ -16,4 +16,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode(['success'=>$result]);
 }
 
-// Testen: curl -v -X POST -F "id=.." http://..../api/diary_entry_delete.php
+// Test: curl -v -X POST -F "id=.." http://..../api/diary_entry_delete.php

@@ -2,7 +2,7 @@
 
 This webapp is a simple diary app. 
 
-You can create, update and delete diary entries, and list all or filtered entries in descending order.
+You can create, update and delete diary entries, and list all or filtered in descending order.
 
 ## Project structure
 
@@ -55,7 +55,8 @@ This line in [index.php](index.php) need to be changed according to the director
 
     const BASE_URL = "/diary"; // <--- This may need to be changed.
 
-## PHP Error Reporting
+## Debugging
 
-Can be switched on or off in [config/error_reporting.php](config/error_reporting.php)
+Can be switched on or off in [config/debugging.php](config/debugging.php) for PHP and
+[config/debugging.js](config/debugging.js) for JavaScript.
 
